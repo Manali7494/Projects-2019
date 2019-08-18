@@ -18,11 +18,11 @@ const authors = [{
 const resolvers = {
     Query: {
         authors: () => {
-            return authors
+            // return authors
         },
         author: (root, args) => {
             const id = args.id;
-            return authors.find(author => author.id === id);
+            // return authors.find(author => author.id === id);
         }
     }
 }
