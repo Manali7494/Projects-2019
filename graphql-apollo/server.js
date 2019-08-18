@@ -1,6 +1,7 @@
 import express from 'express';
 import {graphqlExpress, graphiqlExpress} from 'apollo-server-express';
 import bodyParser from 'body-parser';
+import schema from './schema.js';
 const server = express();
 
 console.log('changing the file!');
@@ -9,7 +10,7 @@ server.get('/', (req, res) => {
     res.send('<html> <body> <h1> Hello world </h1> </body> </html>')
 });
 
-server.use('/graphql', bodyParser.json(), graphqlExpress({}));
+server.use('/graphql', bodyParser.json(), graphqlExpress({schema}));
 
 server.use('/graphiql', graphiqlExpress({
     endpointURL: "/graphql"
